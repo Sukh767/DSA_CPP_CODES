@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Active C++ File",
+            "type": "shell",
+            "command": "/usr/bin/g++",
+            "args": [
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Compile the active C++ file"
+        },
+        {
+            "label": "Run Active C++ File",
+            "isBackground": true,
+            "type": "shell",
+            "command": "${fileDirname}/${fileBasenameNoExtension} < input.txt > output.txt",
+            "problemMatcher": [],
+            "dependsOn": "Build Active C++ File",
+            "detail": "Run the compiled C++ file with input/output redirection"
+        }
+    ]
+}
