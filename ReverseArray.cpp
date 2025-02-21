@@ -1,46 +1,31 @@
+//onjective: Reverse an array
+
 #include <iostream>
 using namespace std;
 
+int main() {
+    int arr[10] = {1, 8, 3, 4, 5, 6, 7, 8, 9, 10};
+    int rev_arr[10];
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int j = 0;
 
-
-void reverseArray(int nums[], int size){
-    int start = 0;
-    int end = size-1;
-
-    while ( start < end ){
-        int temp = nums[start];
-        nums[start] = nums[end];
-        nums[end] = temp;
-        start ++;
-        end--;
-    }
-}
-
-void printArray(int nums[], int size) {
-    cout << "Array elements are:" << endl;
+    cout << "Original Array: ";
     for (int i = 0; i < size; i++) {
-        cout << nums[i] << " ";  
+        cout << arr[i] << " ";
     }
     cout << endl;
-}
 
-int main() {
-    int size;
-    cout << "Enter the size of array container: ";
-    cin >> size;
-
-    int nums[size]; // Variable-length array
-
-    // Insert elements into array
-    for (int i = 0; i < size; i++) {
-        cout << "Enter element " << i + 1 << ": ";
-        cin >> nums[i];
+    // Reverse array into rev_arr
+    for (int i = size - 1; i >= 0; i--) {
+        rev_arr[j] = arr[i];
+        j++;
     }
 
-    printArray(nums, size);
+    cout << "Reversed Array: ";
+    for (int i = 0; i < size; i++) {
+        cout << rev_arr[i] << " ";
+    }
+    cout << endl;
 
-    // Calling reverse function
-    reverseArray(nums,size);
-
-    printArray(nums, size); // Pass the array and size to the function
+    return 0;
 }

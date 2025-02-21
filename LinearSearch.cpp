@@ -1,30 +1,34 @@
+
+// Objective: To search an element in an array using linear search algorithm
+
 #include<iostream>
 using namespace std;
 
+bool linear_search(int arr[], int size, int key){
+    for(int i = 0; i <size; i++){
 
-int linearSearch(int nums[], int size, int findElement){
-    for(int i = 0; i<size; i++){
-        if(nums[i] == findElement){
-            return i;
+        if( arr[i] == key){
+            return 1;
         }
     }
 
-    return -1;
+    return 0;
 }
-
 int main(){
-    int nums[] = {2,3,6,22,8,9,21,1,7};
-    int size = sizeof(nums)/sizeof(int);
-    int number;
-    cout<<"Enter the number you want to search: ";
-    cin>>number;
 
-    int result = linearSearch(nums,size, number);
+    int arr[10]={-2, 4, 1, 7, 4, 3, -9, 0, 5, 6};
 
-    if(result == -1){
-        cout<<"Element not found in nums array."<<endl;
-    } else {
-        cout<<"Element found in array at index "<< result<<endl;
+    int key;
+    cout<<"Enter the element to search in the array:"<<endl;
+
+    cin>>key;
+
+    int search_result = linear_search(arr, 10, key);
+
+    if(search_result){
+        cout<<"Element found in the array"<<endl;
+    }else{
+        cout<<"Element not found in the array"<<endl;
     }
 
 }
